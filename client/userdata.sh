@@ -2,6 +2,7 @@ os=DEPENDOS
 CONNECTPRIVATEIP=DEPENDCONNECTPRIVATEIP
 EMAILID=DEPENDEMAILID
 Password=DEPENDPASSWORD
+Privatekey=DEPENDPRIVATEKEY
 if [ $os == "Ubuntu" ]
 then
   apt update
@@ -26,6 +27,7 @@ then
   sed -i "s/INSTANCEID/$INSTANCEID/g" addtoconnect.sh
   sed -i "s/EMAILID/$EMAILID/g" addtoconnect.sh
   sed -i "s/PASSWORD/$Password/g" addtoconnect.sh
+  sed -i "s/PRIVATEKEY/$Privatekey/g" addtoconnect.sh
   sh -x addtoconnect.sh
   
 elif [ $os == "CentOS" ]
