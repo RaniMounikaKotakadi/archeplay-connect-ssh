@@ -61,12 +61,12 @@ def create_task():
           
       eachinstance = InstanceDetails[0]
       if 'ConnectionType' not in eachinstance:
-        ConnectionType = 'rdp'
+        ConnectionType = 'ssh'
         if 'Port' not in eachinstance:
-            Port='3389'
+            Port='22'
         else:
             Port=eachinstance['Port']
-        protocol='rdp'
+        protocol='ssh'
     
       sql_connection = "INSERT INTO guacamole_connection (connection_name,max_connections,max_connections_per_user,protocol) VALUES ('{0}',3,3 ,'{1}');".format(eachinstance['InstanceId'],protocol)
       cursor.execute(sql_connection)
