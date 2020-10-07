@@ -13,6 +13,7 @@ def create_task():
     rds_host = os.environ['MYSQL_HOST']
     name = os.environ['MYSQL_USER']
     password = os.environ['MYSQL_PASSWORD']
+    PrivateKey=os.environ['PrivateKey']
     db_name = os.environ['MYSQL_DATABASE']
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
@@ -96,7 +97,7 @@ def create_task():
         print(sql_conn_with_password_param)
         cursor.execute(sql_conn_with_password_param)
       if ConnectionType == "ssh":
-        sql_conn_with_password_param = "INSERT INTO guacamole_connection_parameter VALUES ('{0}', 'private-key', '{1}');".format(LastConnectionId, eachinstance['PrivateKey'])
+        sql_conn_with_password_param = "INSERT INTO guacamole_connection_parameter VALUES ('{0}', 'PrivateKey', '{1}');".format(LastConnectionId, eachinstance['PrivateKey'])
         print(sql_conn_with_password_param)
         cursor.execute(sql_conn_with_password_param)
       
