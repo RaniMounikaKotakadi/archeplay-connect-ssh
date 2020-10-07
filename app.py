@@ -96,7 +96,7 @@ def create_task():
         print(sql_conn_with_password_param)
         cursor.execute(sql_conn_with_password_param)
       if ConnectionType == "ssh":
-        sql_conn_with_password_param = "INSERT INTO guacamole_connection_parameter VALUES ('{0}', 'Privatekey', '{1}');".format(LastConnectionId, eachinstance['Privatekey'])
+        sql_conn_with_password_param = "INSERT INTO guacamole_connection_parameter VALUES ('{0}', 'private-key', '{1}');".format(LastConnectionId, eachinstance['Privatekey'])
         print(sql_conn_with_password_param)
         cursor.execute(sql_conn_with_password_param)
       
